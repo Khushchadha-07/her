@@ -11,7 +11,7 @@ const fmtDay = (d:Date)=>d.toLocaleDateString(undefined,{year:'numeric',month:'l
 const fmtTime = (d:Date)=>d.toLocaleTimeString(undefined,{hour:'numeric',minute:'2-digit'})
 const fmtFull = (d:Date)=>d.toLocaleString(undefined,{dateStyle:'full',timeStyle:'medium'})+'  ·  UTC '+d.toISOString().replace('T',' ').slice(0,19)
 const NAMES:Record<string,string> = {me:'You',her:'Her',unk:'Unknown sender'}
-const AV:Record<string,string> = {me:'avatars/me.png',her:'avatars/her.png'}
+const AV:Record<string,string> = {me:'avatars/me.png',her:'avatars/her.jpg'}
 
 // Group messages into days (computed once)
 const DAYS = (()=>{ const out:{key:string;date:Date;idx:number[]}[]=[]; MSGS.forEach((_,i)=>{ const k=dayKey(TS[i]); const l=out[out.length-1]; if(l&&l.key===k) l.idx.push(i); else out.push({key:k,date:TS[i],idx:[i]}) }); return out })()
